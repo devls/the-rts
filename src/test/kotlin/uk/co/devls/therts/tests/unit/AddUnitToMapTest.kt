@@ -1,6 +1,6 @@
 package uk.co.devls.therts.tests.unit
 
-import org.junit.Assert.*
+import org.amshove.kluent.`should equal`
 import org.junit.Test
 import uk.co.devls.therts.UnitAdder
 import uk.co.devls.therts.tests.InMemoryMapState
@@ -13,6 +13,6 @@ class AddUnitToMapTest {
 
         unitAdder.addUnit()
 
-        assertEquals(1, mapState.allUnits.size)
+        mapState.allUnits.size `should equal` 1
     }
 }

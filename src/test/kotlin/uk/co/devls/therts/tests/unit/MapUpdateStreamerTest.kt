@@ -1,8 +1,7 @@
 package uk.co.devls.therts.tests.unit
 
+import org.amshove.kluent.shouldBe
 import org.junit.Test
-
-import org.junit.Assert.*
 import uk.co.devls.therts.MapEventSource
 import uk.co.devls.therts.MapUpdateStreamer
 
@@ -20,24 +19,16 @@ class MapUpdateStreamerTest : MapEventSource {
 
     @Test
     fun GivenOneUpdatesToMap_ThenPresenterIsCalled() {
-
         val streamer = MapUpdateStreamer(this)
 
-        var a = false;
+        var streamerCallbackCalled = false;
         streamer.stream {
-            a = true;
+            streamerCallbackCalled = true;
         }
 
         emitEvent();
 
-        assertTrue( a );
-
+        streamerCallbackCalled shouldBe true
     }
-
-    @Test
-    fun given() {
-
-    }
-
 
 }
